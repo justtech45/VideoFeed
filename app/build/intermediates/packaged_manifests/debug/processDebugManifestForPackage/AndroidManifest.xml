@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.videofeed"
+    package="com.justtech45.videofeed"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -9,6 +9,7 @@
         android:targetSdkVersion="35" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <!-- Required for downloads on Android 9 and below -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -16,10 +17,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
-        android:name="com.example.videofeed.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.justtech45.videofeed.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.example.videofeed.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.justtech45.videofeed.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:allowBackup="true"
@@ -32,10 +33,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoFeed" >
         <activity
-            android:name="com.example.videofeed.MainActivity"
+            android:name="com.justtech45.videofeed.MainActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden"
             android:exported="true"
-            android:theme="@style/Theme.VideoFeed" >
+            android:theme="@style/Theme.VideoFeed"
+            android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,7 +47,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.example.videofeed.androidx-startup"
+            android:authorities="com.justtech45.videofeed.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

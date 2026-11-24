@@ -1,4 +1,4 @@
-com.example.videofeed
+com.justtech45.videofeed
 array exo_controls_playback_speeds
 attr ad_marker_color
 attr ad_marker_width

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.videofeed.app-mergeDebugResources-2:/values-kn/values-kn.xml",
+            "outputFile": "com.justtech45.videofeed.app-mergeDebugResources-2:/values-kn/values-kn.xml",
             "map": [
                 {
                     "source": "/root/.gradle/caches/8.9/transforms/610af5e1bb6138c90b284b51c5209f8d/transformed/media3-exoplayer-1.5.1/res/values-kn/values-kn.xml",

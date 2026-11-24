@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.videofeed.app-mergeDebugResources-2:/values-tl/values-tl.xml",
+            "outputFile": "com.justtech45.videofeed.app-mergeDebugResources-2:/values-tl/values-tl.xml",
             "map": [
                 {
                     "source": "/root/.gradle/caches/8.9/transforms/64e9cf8a1edba8f585caccc2ae09224a/transformed/media3-ui-1.5.1/res/values-tl/values-tl.xml",

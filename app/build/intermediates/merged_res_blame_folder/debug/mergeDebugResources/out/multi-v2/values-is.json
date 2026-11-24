@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.videofeed.app-mergeDebugResources-2:/values-is/values-is.xml",
+            "outputFile": "com.justtech45.videofeed.app-mergeDebugResources-2:/values-is/values-is.xml",
             "map": [
                 {
                     "source": "/root/.gradle/caches/8.9/transforms/cd46abea9d16e862d0dfae7b2db85bca/transformed/core-1.15.0/res/values-is/values-is.xml",
