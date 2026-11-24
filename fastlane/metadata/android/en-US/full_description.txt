@@ -1,0 +1,1 @@
+VideoFeed lets you discover and watch videos from X profiles. Enter a username to browse a dedicated video feed, scroll through available videos, play them in the app, and download supported videos. Video availability depends on upstream services and may change.
