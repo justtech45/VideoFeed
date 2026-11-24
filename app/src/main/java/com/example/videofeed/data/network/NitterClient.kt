@@ -1,8 +1,8 @@
-package com.example.videofeed.data.network
+package com.justtech45.videofeed.data.network
 
 import android.util.Log
-import com.example.videofeed.data.parser.NitterMediaParser
-import com.example.videofeed.data.parser.ParseResult
+import com.justtech45.videofeed.data.parser.NitterMediaParser
+import com.justtech45.videofeed.data.parser.ParseResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient

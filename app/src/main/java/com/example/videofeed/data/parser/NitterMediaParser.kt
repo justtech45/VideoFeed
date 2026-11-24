@@ -1,6 +1,6 @@
-package com.example.videofeed.data.parser
+package com.justtech45.videofeed.data.parser
 
-import com.example.videofeed.data.model.VideoPost
+import com.justtech45.videofeed.data.model.VideoPost
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import java.net.URI

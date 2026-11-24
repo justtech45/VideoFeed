@@ -1,4 +1,4 @@
-package com.example.videofeed
+package com.justtech45.videofeed
 
 import android.graphics.Color
 import android.os.Bundle
@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.videofeed.data.ProfileVideoRepository
-import com.example.videofeed.data.network.NitterClient
-import com.example.videofeed.ui.*
-import com.example.videofeed.ui.theme.TrueBlack
-import com.example.videofeed.ui.theme.VideoFeedTheme
+import com.justtech45.videofeed.data.ProfileVideoRepository
+import com.justtech45.videofeed.data.network.NitterClient
+import com.justtech45.videofeed.ui.*
+import com.justtech45.videofeed.ui.theme.TrueBlack
+import com.justtech45.videofeed.ui.theme.VideoFeedTheme
 
 private const val INSTANCE = "https://xitter.cf"
 

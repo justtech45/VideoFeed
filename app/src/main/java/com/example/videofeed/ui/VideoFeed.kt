@@ -1,4 +1,4 @@
-package com.example.videofeed.ui
+package com.justtech45.videofeed.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -35,8 +35,8 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import coil3.compose.AsyncImage
-import com.example.videofeed.data.model.VideoPost
-import com.example.videofeed.ui.theme.*
+import com.justtech45.videofeed.data.model.VideoPost
+import com.justtech45.videofeed.ui.theme.*
 import kotlinx.coroutines.launch
 
 @Composable

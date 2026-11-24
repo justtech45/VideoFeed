@@ -1,4 +1,4 @@
-package com.example.videofeed.data.model
+package com.justtech45.videofeed.data.model
 
 data class VideoPost(
     val tweetId: String,

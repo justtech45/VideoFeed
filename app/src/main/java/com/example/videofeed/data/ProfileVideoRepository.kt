@@ -1,6 +1,6 @@
-package com.example.videofeed.data
+package com.justtech45.videofeed.data
 
-import com.example.videofeed.data.network.NitterClient
+import com.justtech45.videofeed.data.network.NitterClient
 
 class ProfileVideoRepository(private val client: NitterClient) {
     fun firstUrl(username: String): String = client.firstPageUrl(username, mediaOnly = true)

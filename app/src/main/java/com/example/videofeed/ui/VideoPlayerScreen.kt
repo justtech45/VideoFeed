@@ -1,4 +1,4 @@
-package com.example.videofeed.ui
+package com.justtech45.videofeed.ui
 
 import android.app.Activity
 import android.app.DownloadManager
@@ -70,8 +70,8 @@ import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
-import com.example.videofeed.data.model.VideoPost
-import com.example.videofeed.ui.theme.*
+import com.justtech45.videofeed.data.model.VideoPost
+import com.justtech45.videofeed.ui.theme.*
 import java.util.Locale
 import kotlinx.coroutines.delay
 

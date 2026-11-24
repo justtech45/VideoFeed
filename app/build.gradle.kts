@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.videofeed"
+    namespace = "com.justtech45.videofeed"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.videofeed"
+        applicationId = "com.justtech45.videofeed"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.example.videofeed.ui
+package com.justtech45.videofeed.ui
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
@@ -37,8 +37,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.example.videofeed.data.model.VideoPost
-import com.example.videofeed.ui.theme.*
+import com.justtech45.videofeed.data.model.VideoPost
+import com.justtech45.videofeed.ui.theme.*
 
 /* ── Avatar ──────────────────────────────────────────────────────────── */
 

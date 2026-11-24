@@ -1,4 +1,4 @@
-package com.example.videofeed.ui.theme
+package com.justtech45.videofeed.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

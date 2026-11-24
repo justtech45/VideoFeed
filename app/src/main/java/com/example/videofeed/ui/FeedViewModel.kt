@@ -1,10 +1,10 @@
-package com.example.videofeed.ui
+package com.justtech45.videofeed.ui
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.videofeed.data.ProfileVideoRepository
-import com.example.videofeed.data.model.VideoPost
+import com.justtech45.videofeed.data.ProfileVideoRepository
+import com.justtech45.videofeed.data.model.VideoPost
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update

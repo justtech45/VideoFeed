@@ -1,4 +1,4 @@
-package com.example.videofeed.ui
+package com.justtech45.videofeed.ui
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.videofeed.ui.theme.*
+import com.justtech45.videofeed.ui.theme.*
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @OptIn(ExperimentalMaterial3Api::class)

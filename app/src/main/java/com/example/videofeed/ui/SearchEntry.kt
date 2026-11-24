@@ -1,4 +1,4 @@
-package com.example.videofeed.ui
+package com.justtech45.videofeed.ui
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
@@ -54,8 +54,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.videofeed.R
-import com.example.videofeed.ui.theme.*
+import com.justtech45.videofeed.R
+import com.justtech45.videofeed.ui.theme.*
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants
