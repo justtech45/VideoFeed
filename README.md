@@ -112,14 +112,16 @@ X and Twitter are trademarks of their respective owners. Users are responsible f
 
 ## Licence
 
-**Licence status: MIT is intended for original VideoFeed code, subject to a third-party code and dependency review.**
+VideoFeed original source code is licensed under the **MIT License**. See the [LICENSE](LICENSE) file.
 
-The Nitter project is licensed under **AGPL-3.0**. If any Nitter code has been copied, adapted, or incorporated into VideoFeed, the applicable AGPL-3.0 requirements must be followed for that covered code and derivative work. An MIT licence cannot override those requirements.
+### Third-party projects and libraries
 
-Before publishing an MIT `LICENSE` file, verify that the VideoFeed source is independently implemented or that every included third-party component permits the intended licensing. Preserve all required third-party copyright and licence notices.
+- **[Nitter](https://github.com/zedeus/nitter)** - Special credit to Zed (@zedeus) and all Nitter contributors. Nitter is a separate project licensed under **AGPL-3.0**. VideoFeed independently implements its Android client and parser; it does not include Nitter server source code.
+- **Third-party libraries** retain their respective licences and copyright notices.
 
-See the [Nitter licence](https://github.com/zedeus/nitter/blob/master/LICENSE) for its terms.
+VideoFeed is an independent project and is not an official Nitter application. The MIT licence for VideoFeed does not replace or change the licences of third-party projects or dependencies.
 
+See the [Nitter AGPL-3.0 licence](https://github.com/zedeus/nitter/blob/master/LICENSE).
 ---
 
 <div align="center">
