@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VideoFeed – Every video from any X profile, in one clean feed</title>
+<meta name="description" content="VideoFeed is a free-to-try Android app that gathers every video from any X profile into one clean feed. No account needed.">
+<meta name="theme-color" content="#060908">
+<meta property="og:title" content="VideoFeed – Every video from any X profile, in one clean feed">
+<meta property="og:description" content="Enter a username, get every video in one clean feed. No account needed.">
+<meta property="og:image" content="https://imglink.cc/cdn/1z6gxgDPzy.jpg">
+<link rel="icon" href="https://imglink.cc/cdn/BJytNaAdUp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#060908; --panel:#0e1413; --raise:#141c1a; --line:#1e2b28;
+  --text:#e9f2ef; --muted:#93a8a1; --mint:#4fe3bd; --mint-d:#1d3b34;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--ink);color:var(--text);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+svg.i{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--head);letter-spacing:-.025em;line-height:1.08}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(6,9,8,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(30,43,40,.7)}
+.nav .wrap{display:flex;align-items:center;gap:32px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;font:700 1.2rem var(--head);letter-spacing:-.02em}
+.brand img{width:38px;height:38px;border-radius:10px}
+.links{display:flex;gap:28px;margin-left:auto;color:var(--muted);font-size:.95rem;font-weight:500}
+.links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;border-radius:999px;font:600 1rem var(--body);border:1px solid var(--line);color:var(--text);background:var(--panel);transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{border-color:var(--mint);transform:translateY(-2px)}
+.btn.primary{background:var(--mint);color:#04120e;border-color:var(--mint)}
+.btn.primary:hover{background:#7aedd0}
+.btn.sm{height:42px;padding:0 18px;font-size:.92rem}
+.nav .btn{margin-left:0}
+
+/* hero */
+.hero{position:relative;padding:72px 0 96px;background:radial-gradient(60% 55% at 70% 0%,rgba(79,227,189,.16),transparent 70%),radial-gradient(40% 40% at 0% 30%,rgba(79,227,189,.07),transparent 70%)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1px solid var(--mint-d);background:rgba(29,59,52,.45);color:var(--mint);border-radius:999px;font-weight:500;font-size:.95rem}
+.pill::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px rgba(79,227,189,.18)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.5rem);font-weight:700;margin:26px 0 22px;max-width:12.5em}
+.hero p.lead{color:var(--muted);font-size:1.2rem;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:34px;color:var(--muted);font-size:.95rem}
+.facts span{display:inline-flex;align-items:center;gap:8px}
+.facts .i{color:var(--mint)}
+
+.stage{position:relative;height:620px}
+.phone{position:absolute;width:262px;padding:8px;border-radius:38px;background:#0b0f0e;border:1px solid #27413a;box-shadow:0 40px 80px -20px rgba(0,0,0,.8),0 0 70px -10px rgba(79,227,189,.18)}
+.phone img{width:100%;border-radius:30px;aspect-ratio:1080/2400;object-fit:cover;background:var(--raise)}
+.phone.back{right:0;top:0;transform:rotate(7deg);opacity:.92}
+.phone.front{left:6%;top:56px;transform:rotate(-4deg);z-index:2}
+
+/* one orchestrated entrance */
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes drop{from{opacity:0;transform:translateY(40px) rotate(0)}}
+.hero .copy>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) backwards}
+.hero .copy>:nth-child(2){animation-delay:.08s}.hero .copy>:nth-child(3){animation-delay:.16s}
+.hero .copy>:nth-child(4){animation-delay:.24s}.hero .copy>:nth-child(5){animation-delay:.32s}
+.phone.back{animation:drop 1s .2s cubic-bezier(.2,.7,.2,1) backwards}
+.phone.front{animation:drop 1s .4s cubic-bezier(.2,.7,.2,1) backwards}
+
+/* sections */
+section{padding:104px 0}
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.split h2,.head h2{font-size:clamp(2rem,3.6vw,3rem);font-weight:700}
+.split .intro{position:sticky;top:110px;align-self:start}
+.intro p,.head p{color:var(--muted);margin-top:18px;max-width:30em}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:0 44px}
+.feat li{list-style:none;padding:30px 0;border-top:1px solid var(--line)}
+.feat .i{width:26px;height:26px;color:var(--mint);margin-bottom:16px}
+.feat h3{font-size:1.25rem;margin-bottom:8px}
+.feat p{color:var(--muted);font-size:1rem}
+
+.band{background:var(--panel);border-block:1px solid var(--line)}
+.head{max-width:640px;margin-bottom:56px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;counter-reset:s}
+.steps li{list-style:none;position:relative;padding:0 36px 0 0}
+.steps li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--mint);color:#04120e;font:700 1.15rem var(--head);margin-bottom:26px;position:relative;z-index:1}
+.steps li::after{content:"";position:absolute;left:58px;right:12px;top:23px;height:1px;background:linear-gradient(90deg,var(--mint-d),var(--line))}
+.steps li:last-child::after{display:none}
+.steps h3{font-size:1.3rem;margin-bottom:10px}
+.steps p{color:var(--muted)}
+.field{margin-top:60px;display:flex;align-items:center;gap:14px;max-width:520px;padding:6px 6px 6px 22px;border:1px solid var(--line);border-radius:999px;background:var(--ink);color:#5d726b}
+.field .i{color:var(--mint)}
+.field b{font-weight:500;flex:1}
+.field span{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px;border-radius:999px;background:var(--mint-d);color:var(--mint);font-weight:600;font-size:.95rem}
+
+.shots{display:flex;justify-content:center;gap:36px;flex-wrap:wrap}
+.shots .phone{position:static;transform:none;width:min(290px,78vw)}
+.shots .phone:nth-child(2){margin-top:56px}
+
+.faq{max-width:780px;margin-inline:auto}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 0;font:600 1.15rem var(--head);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:400 1.6rem/1 var(--body);color:var(--mint);transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 40px 26px 0}
+
+.final{padding:0 0 104px}
+.panel{display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center;padding:52px 56px;border:1px solid var(--mint-d);border-radius:36px;background:radial-gradient(70% 140% at 0% 0%,rgba(79,227,189,.16),transparent 65%),var(--panel)}
+.panel img{width:96px;height:96px;border-radius:24px;border:1px solid var(--line)}
+.panel h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700}
+.panel p{color:var(--muted);margin-top:10px}
+
+footer{border-top:1px solid var(--line);padding:44px 0 56px;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 48px;justify-content:space-between;align-items:flex-start}
+footer .brand{color:var(--text);font-size:1.05rem}
+footer .brand img{width:30px;height:30px;border-radius:8px}
+footer p{max-width:46em}
+footer nav{display:flex;gap:24px}
+footer nav a:hover{color:var(--text)}
+
+@media (max-width:960px){
+  .hero{padding:48px 0 72px}
+  .hero .wrap,.split{grid-template-columns:1fr}
+  .split{gap:36px}.split .intro{position:static}
+  .stage{height:560px;max-width:460px;margin-inline:auto;width:100%}
+  .phone{width:238px}.phone.front{left:2%}
+  .links{display:none}.nav .btn{margin-left:auto}
+  section{padding:80px 0}
+  .panel{grid-template-columns:1fr;padding:40px 30px;text-align:left}
+}
+@media (max-width:720px){
+  .feat{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:36px}
+  .steps li{padding:0 0 0 70px}
+  .steps li::before{position:absolute;left:0;top:0;margin:0}
+  .steps li::after{left:23px;right:auto;top:52px;bottom:-30px;width:1px;height:auto;background:var(--line)}
+  .field{flex-wrap:wrap;border-radius:28px;padding:14px 14px 14px 20px}
+  .field span{width:100%;justify-content:center}
+  .shots .phone:nth-child(2){margin-top:0}
+  .cta .btn{flex:1 1 100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="play" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></symbol>
+  <symbol id="at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.9 7.9"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+  <symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+  <symbol id="userx" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="13"/><line x1="23" y1="8" x2="18" y2="13"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  <symbol id="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="VideoFeed home">
+      <img src="https://imglink.cc/cdn/BJytNaAdUp.png" alt="" width="38" height="38">VideoFeed
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#preview">Screenshots</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn primary sm" href="https://github.com/justtech45/VideoFeed/releases/download/Apk1.0v/VideoFeed-v1.0.apk" download><svg class="i"><use href="#dl"/></svg>Download</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="copy">
+        <span class="pill">No account needed</span>
+        <h1>Every video from any X profile, in one clean feed.</h1>
+        <p class="lead">Type a username and VideoFeed collects that profile’s videos into a single, distraction-free feed for Android. No sign-up, no login.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/justtech45/VideoFeed/releases/download/Apk1.0v/VideoFeed-v1.0.apk" download><svg class="i"><use href="#dl"/></svg>Download APK</a>
+          <a class="btn" href="#how">See how it works</a>
+        </div>
+        <div class="facts">
+          <span><svg class="i"><use href="#check"/></svg>Android app</span>
+          <span><svg class="i"><use href="#check"/></svg>No account</span>
+          <span><svg class="i"><use href="#check"/></svg>Dark interface</span>
+        </div>
+      </div>
+      <div class="stage" aria-hidden="false">
+        <div class="phone back"><img src="https://imglink.cc/cdn/atKLUjDos8.jpg" alt="VideoFeed app screenshot showing the video feed" loading="eager"></div>
+        <div class="phone front"><img src="https://imglink.cc/cdn/1z6gxgDPzy.jpg" alt="VideoFeed app screenshot showing the username search" loading="eager"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="wrap split">
+      <div class="intro">
+        <h2>Built to do one thing well</h2>
+        <p>Watching a profile’s videos shouldn’t mean scrolling past everything else. VideoFeed keeps only the videos and gets out of the way.</p>
+      </div>
+      <ul class="feat">
+        <li><svg class="i"><use href="#grid"/></svg><h3>All videos, one feed</h3><p>Every video from a profile in a single scrolling list, not buried between text posts and replies.</p></li>
+        <li><svg class="i"><use href="#userx"/></svg><h3>No account needed</h3><p>Skip the sign-up and the login. Open the app, enter a username and start watching.</p></li>
+        <li><svg class="i"><use href="#at"/></svg><h3>Search by username</h3><p>Enter any public handle, such as @elonmusk, and tap Explore videos.</p></li>
+        <li><svg class="i"><use href="#globe"/></svg><h3>Public Nitter instances</h3><p>Videos are fetched from public Nitter instances rather than through an X account.</p></li>
+        <li><svg class="i"><use href="#play"/></svg><h3>A focused player</h3><p>Tap to play, follow the progress bar and keep your attention on the video.</p></li>
+        <li><svg class="i"><use href="#moon"/></svg><h3>Dark by design</h3><p>A deep dark theme with a single mint accent that’s easy on the eyes at any hour.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="band">
+    <div class="wrap">
+      <div class="head">
+        <h2>From username to video in three steps</h2>
+        <p>There’s nothing to configure. If you can type a handle, you can use VideoFeed.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Enter a username</h3><p>Type the X handle of the profile you want to watch.</p></li>
+        <li><h3>Tap Explore videos</h3><p>VideoFeed looks up the profile and pulls its videos from public Nitter instances.</p></li>
+        <li><h3>Watch the feed</h3><p>Scroll through every video in one clean list and play whatever catches your eye.</p></li>
+      </ol>
+      <div class="field" aria-hidden="true">
+        <svg class="i"><use href="#at"/></svg><b>elonmusk</b><span>Explore videos <svg class="i"><use href="#arrow"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshots -->
+  <section id="preview">
+    <div class="wrap">
+      <div class="head" style="margin-inline:auto;text-align:center">
+        <h2>A calm, uncluttered app</h2>
+        <p style="margin-inline:auto">Big video, minimal chrome and one accent color.</p>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="https://imglink.cc/cdn/1z6gxgDPzy.jpg" alt="VideoFeed screenshot 1" loading="lazy"></div>
+        <div class="phone"><img src="https://imglink.cc/cdn/atKLUjDos8.jpg" alt="VideoFeed screenshot 2" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="band">
+    <div class="wrap">
+      <div class="head" style="margin-inline:auto;text-align:center">
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Do I need an X account?</summary><p>No. VideoFeed works without an account. Enter a public username and the app does the rest.</p></details>
+        <details><summary>Where do the videos come from?</summary><p>VideoFeed fetches videos from public Nitter instances. Because these instances are run by third parties, loading speed and availability can vary.</p></details>
+        <details><summary>How do I install the APK?</summary><p>Download the file on your Android phone and open it. If Android asks, allow installs from your browser or file manager for this one time, then tap Install.</p></details>
+        <details><summary>Is VideoFeed affiliated with X?</summary><p>No. VideoFeed is an independent app and is not affiliated with, endorsed by or sponsored by X Corp. X is a trademark of its respective owner.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final" style="padding-top:104px">
+    <div class="wrap">
+      <div class="panel">
+        <img src="https://imglink.cc/cdn/BJytNaAdUp.png" alt="VideoFeed logo" loading="lazy">
+        <div>
+          <h2>Get VideoFeed for Android</h2>
+          <p>Download the APK and start watching in under a minute.</p>
+        </div>
+        <a class="btn primary" href="https://github.com/justtech45/VideoFeed/releases/download/Apk1.0v/VideoFeed-v1.0.apk" download><svg class="i"><use href="#dl"/></svg>Download APK</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#top"><img src="https://imglink.cc/cdn/BJytNaAdUp.png" alt="" width="30" height="30">VideoFeed</a>
+      <p style="margin-top:14px">VideoFeed is an independent app and is not affiliated with X Corp. All trademarks belong to their respective owners.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
